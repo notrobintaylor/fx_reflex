@@ -118,6 +118,8 @@ The envelope follower tracks input amplitude in SuperCollider and sends it to Lu
 |-----------|---------|
 | **slot** | none / send a / send b / insert |
 
+In the insert slot the plugin overwrites the fx mod's wet bus instead of adding to it, so it works with every version of the fx mod (older versions never clear that bus, and an additive write piled up). In send a / send b it adds to the norns output as before.
+
 ### Reverb
 
 | Parameter | Range | Unit | Default |

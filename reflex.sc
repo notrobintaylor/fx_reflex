@@ -163,7 +163,7 @@ FxReflex : FxBase {
             ]);
 
             // ---- OUTPUT: HPF + LIMITER ----
-            Out.ar(outBus, Limiter.ar(HPF.ar(wet, 60), 1.0, 0.01));
+            ReplaceOut.ar(outBus, Limiter.ar(HPF.ar(wet, 60), 1.0, 0.01) + (In.ar(outBus, 2) * (outBus < Server.default.options.numOutputBusChannels)));
         }).add;
     }
 }
